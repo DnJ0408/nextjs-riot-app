@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
+title: "[Feat]"
 labels: "✨Feature"
 assignees: DnJ0408
 
@@ -9,12 +9,12 @@ assignees: DnJ0408
 
 # ✨ Feature
 
-### Issue
+### 💡 Issue
 -
 
 <br>
 
-### To-do
-- [ ] 
+### 🙋‍♂️ To-do
+- [ ] Todo
 
 <br>
