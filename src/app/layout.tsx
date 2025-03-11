@@ -24,7 +24,7 @@ const NAV_LINK = "hover:text-red-500";
   return (
     <html lang="en">
       <body className={`${pretendard.className} antialiased`}>
-        <div className="flex justify-evenly items-center bg-black text-white h-14">
+        <div className="flex justify-evenly items-center bg-black text-sm text-white h-14">
           <Link className={NAV_LINK} href={"/"}>Home</Link>
           <Link className={NAV_LINK} href={"/champions"}>Champions</Link>
           <Link className={NAV_LINK} href={"/items"}>Item List</Link>
