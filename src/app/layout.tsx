@@ -18,14 +18,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+const NAV_LINK = "hover:text-red-500";
+
   return (
     <html lang="en">
       <body className={`${pretendard.className} antialiased`}>
-        <div>
-          <Link href={"/"}>Home</Link>
-          <Link href={"/champions"}>Champions</Link>
-          <Link href={"/items"}>Item List</Link>
-          <Link href={"/rotation"}>Free Champion Rotation</Link>
+        <div className="flex justify-evenly items-center bg-black text-white h-14">
+          <Link className={NAV_LINK} href={"/"}>Home</Link>
+          <Link className={NAV_LINK} href={"/champions"}>Champions</Link>
+          <Link className={NAV_LINK} href={"/items"}>Item List</Link>
+          <Link className={NAV_LINK} href={"/rotation"}>Free Champion Rotation</Link>
         </div>
         {children}
       </body>
