@@ -8,11 +8,12 @@ export const fetchItemList = async () => {
   const response = await fetch(
     `${BASE_URL}/cdn/${versions[0]}/data/en_US/item.json`
   );
-  const itemList = await response.json();
+  
+  const data = await response.json();
 
   if (!response.ok) throw new Error(`HTTP request error:${response.status}`);
 
-  return itemList;
+  return data;
 };
 
 // Incremental Static Regeneration
@@ -24,11 +25,11 @@ export const fetchChampionList = async () => {
       next: { revalidate: 86400 },
     }
   );
-  const championList= await response.json();
+  const data= await response.json();
 
   if (!response.ok) throw new Error(`HTTP request error:${response.status}`);
 
-  return championList;
+  return data;
 };
 
 export const fetchChampionDetails = async () => {
@@ -39,9 +40,9 @@ export const fetchChampionDetails = async () => {
       cache: "no-store",
     }
   );
-  const championDetails= await response.json();
+  const data= await response.json();
 
   if (!response.ok) throw new Error(`HTTP request error:${response.status}`);
   
-  return championDetails;
+  return data;
 };
