@@ -2,7 +2,6 @@ import { fetchVersions } from "./commonApi";
 
 const BASE_URL = process.env.BASE_URL;
 
-// Static Site Generation
 export const fetchItemList = async () => {
   const versions = await fetchVersions();
   const response = await fetch(
@@ -16,7 +15,6 @@ export const fetchItemList = async () => {
   return data;
 };
 
-// Incremental Static Regeneration
 export const fetchChampionList = async () => {
   const versions = await fetchVersions();
   const response = await fetch(
