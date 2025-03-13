@@ -1,4 +1,4 @@
-import { fetchVersions } from "./commonApi";
+import { fetchVersions } from './commonApi';
 
 const BASE_URL = process.env.BASE_URL;
 
@@ -23,8 +23,9 @@ export const fetchChampionList = async () => {
       next: { revalidate: 86400 },
     }
   );
-  const data= await response.json();
-
+  
+  const data = await response.json();
+ 
   if (!response.ok) throw new Error(`HTTP request error:${response.status}`);
 
   return data;
@@ -35,7 +36,7 @@ export const fetchChampionDetails = async () => {
   const response = await fetch(
     `${BASE_URL}/cdn/${versions[0]}/data/en_US/champion.json`,
     {
-      cache: "no-store",
+      cache: 'no-store',
     }
   );
   const data= await response.json();
