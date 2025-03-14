@@ -9,41 +9,62 @@ const ChampionDetails = async ({ params }) => {
   const { data } = await fetchChampionDetails(id);
 
   const champion = Object.values(data);
-  console.log(champion);
-
+  
   return (
-    <div>
-      <ul>
-        {champion.map((champion) => (
-          <li key={champion.id}>
-            <h2>{champion.name}</h2>
-            <p>{champion.title}</p>
-            <Image
-              src={`${BASE_URL}/cdn/${versions[0]}/img/champion/${champion.image.full}`}
-              alt={champion.name}
-              width={120}
-              height={120}
-              className='mb-3 rounded-full'
-            />
-            <h3>{champion.lore}</h3>
-            <h3>Stats</h3>
-            <ul>
-              <li>
-                <strong>Attack:</strong> {champion.info.attack}
-              </li>
-              <li>
-                <strong>Defense:</strong> {champion.info.defense}
-              </li>
-              <li>
-                <strong>Magic:</strong> {champion.info.magic}
-              </li>
-              <li>
-                <strong>Difficulty:</strong> {champion.info.difficulty}
-              </li>
-            </ul>
-          </li>
-        ))}
-      </ul>
+    <div className='w-full min-h-screen p-4 bg-gray-800 text-white'>
+      <div className='container mx-auto'>
+        <h1 className='text-2xl font-bold mb-6'>Champion Details</h1>
+        <div className='flex flex-wrap justify-center gap-6'>
+          {champion.map((champion) => (
+            <div
+              key={champion.id}
+              className='w-full max-w-xs bg-gray-900 p-6 rounded-lg shadow-lg'
+            >
+              <h2 className='text-3xl font-semibold mb-2 text-red-600'>
+                {champion.name}
+              </h2>
+              <p className='text-gray-400 mb-4'>{champion.title}</p>
+              <div className='flex justify-center mb-4'>
+                <Image
+                  src={`${BASE_URL}/cdn/${versions[0]}/img/champion/${champion.image.full}`}
+                  alt={champion.name}
+                  width={120}
+                  height={120}
+                  className='rounded-full'
+                />
+              </div>
+              <p className='text-sm text-gray-400 mb-4'>{champion.lore}</p>
+              <h3 className='text-xl text-center font-semibold mb-2 text-gray-300'>Stats</h3>
+              <ul className='space-y-2 text-sm text-gray-400'>
+                <li>
+                  <strong className='font-semibold text-gray-200'>
+                    Attack:
+                  </strong>{' '}
+                  {champion.info.attack}
+                </li>
+                <li>
+                  <strong className='font-semibold text-gray-200'>
+                    Defense:
+                  </strong>{' '}
+                  {champion.info.defense}
+                </li>
+                <li>
+                  <strong className='font-semibold text-gray-200'>
+                    Magic:
+                  </strong>{' '}
+                  {champion.info.magic}
+                </li>
+                <li>
+                  <strong className='font-semibold text-gray-200'>
+                    Difficulty:
+                  </strong>{' '}
+                  {champion.info.difficulty}
+                </li>
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
