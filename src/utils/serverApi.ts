@@ -7,7 +7,7 @@ export const fetchItemList = async () => {
   const response = await fetch(
     `${BASE_URL}/cdn/${versions[0]}/data/en_US/item.json`
   );
-  
+
   const data = await response.json();
 
   if (!response.ok) throw new Error(`HTTP request error:${response.status}`);
@@ -23,25 +23,25 @@ export const fetchChampionList = async () => {
       next: { revalidate: 86400 },
     }
   );
-  
+
   const data = await response.json();
- 
+
   if (!response.ok) throw new Error(`HTTP request error:${response.status}`);
 
   return data;
 };
 
-export const fetchChampionDetails = async () => {
+export const fetchChampionDetails = async (id) => {
   const versions = await fetchVersions();
   const response = await fetch(
-    `${BASE_URL}/cdn/${versions[0]}/data/en_US/champion.json`,
+    `${BASE_URL}/cdn/${versions[0]}/data/en_US/champion/${id}.json`,
     {
       cache: 'no-store',
     }
   );
-  const data= await response.json();
+  const data = await response.json();
 
   if (!response.ok) throw new Error(`HTTP request error:${response.status}`);
-  
+
   return data;
 };
