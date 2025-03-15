@@ -18,10 +18,10 @@ const ChampionDetailCard = ({ champion, versions }) => {
         />
       </div>
       <p className='text-sm text-gray-400 mb-4'>{champion.lore}</p>
-      <h3 className='text-xl text-center font-semibold mb-2 text-gray-300'>
+      <h3 className='text-2xl font-semibold text-gray-300'>
         Stats
       </h3>
-      <ul className='space-y-2 text-sm text-gray-400'>
+      <ul className='space-y-1 text-sm mt-2 text-gray-400'>
         <li>
           <strong className='font-semibold text-gray-200'>Attack:</strong>{' '}
           {champion.info.attack}
