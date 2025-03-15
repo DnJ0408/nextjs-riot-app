@@ -2,7 +2,7 @@ import ChampionCard from '@/components/champions/ChampionCard';
 import { fetchVersions } from '@/utils/commonApi';
 import { fetchChampionList } from '@/utils/serverApi';
 
-const champions = async () => {
+const Champions = async () => {
   const versions = await fetchVersions();
   const { data } = await fetchChampionList();
 
@@ -22,4 +22,4 @@ const champions = async () => {
   );
 };
 
-export default champions;
+export default Champions;

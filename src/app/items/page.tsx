@@ -2,7 +2,7 @@ import ItemCard from '@/components/items/ItemCard';
 import { fetchVersions } from '@/utils/commonApi';
 import { fetchItemList } from '@/utils/serverApi';
 
-const items = async () => {
+const Items = async () => {
   const versions = await fetchVersions();
   const { data } = await fetchItemList();
 
@@ -25,4 +25,4 @@ const items = async () => {
   );
 };
 
-export default items;
+export default Items;
