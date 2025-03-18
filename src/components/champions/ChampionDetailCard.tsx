@@ -1,7 +1,16 @@
+import { ChampionDetail } from '@/types/Champion';
 import Image from 'next/image';
 
-const ChampionDetailCard = ({ champion, versions }) => {
-  const BASE_URL = process.env.BASE_URL;
+interface ChampionDetailCardProps {
+  champion: ChampionDetail;
+  versions: string[];
+}
+
+const ChampionDetailCard = ({
+  champion,
+  versions,
+}: ChampionDetailCardProps) => {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   return (
     <div className='w-full max-w-xs bg-gray-900 p-6 rounded-lg shadow-lg'>
       <h2 className='text-3xl font-semibold mb-2 text-red-600'>
@@ -18,9 +27,7 @@ const ChampionDetailCard = ({ champion, versions }) => {
         />
       </div>
       <p className='text-sm text-gray-400 mb-4'>{champion.lore}</p>
-      <h3 className='text-2xl font-semibold text-gray-300'>
-        Stats
-      </h3>
+      <h3 className='text-2xl font-semibold text-gray-300'>Stats</h3>
       <ul className='space-y-1 text-sm mt-2 text-gray-400'>
         <li>
           <strong className='font-semibold text-gray-200'>Attack:</strong>{' '}

@@ -1,7 +1,13 @@
+import { Item } from '@/types/Item';
 import Image from 'next/image';
 
-const ItemCard = ({ item, versions }) => {
-  const BASE_URL = process.env.BASE_URL;
+interface ItemCardProps {
+  item: Item;
+  versions: string[];
+}
+
+const ItemCard = ({ item, versions }: ItemCardProps) => {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   return (
     <li className='border rounded-lg shadow-md p-4 flex flex-col items-center text-center w-40 h-60 bg-gray-900'>

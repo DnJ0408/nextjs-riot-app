@@ -1,15 +1,20 @@
 import ChampionDetailCard from '@/components/champions/ChampionDetailCard';
+import { ChampionDetail } from '@/types/Champion';
 import { fetchVersions } from '@/utils/commonApi';
 import { fetchChampionDetails } from '@/utils/serverApi';
 
-const ChampionDetails = async ({ params }) => {
+interface ChampionDetailsProps {
+  params: {id: string};
+}
+
+const ChampionDetails = async ({ params }: ChampionDetailsProps) => {
   const { id } = params;
   const versions = await fetchVersions();
   
   const { data } = await fetchChampionDetails(id);
 
-  const champion = Object.values(data);
-  
+  const champion = Object.values(data) as ChampionDetail[];
+
   return (
     <div className='w-full min-h-screen p-4 bg-gray-800 text-white'>
       <div className='container mx-auto'>
