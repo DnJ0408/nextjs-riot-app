@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className='container mx-auto p-4'>
       <h1 className='flex justify-center mt-6 text-xl md:text-2xl lg:text-3xl font-bold'>
-        League Of Legends with the Riot API
+        League of Legends with the Riot API
       </h1>
 
       <div className='flex flex-col justify-center items-center gap-6 mt-8'>
@@ -25,7 +25,6 @@ export default function Home() {
           </div>
         </Link>
 
-        {/* Weekly Free Champions */}
         <Link href={'/rotation'}>
           <div className='group relative w-[300px] h-[200px] overflow-hidden rounded-lg shadow-md'>
             <Image
@@ -41,7 +40,6 @@ export default function Home() {
           </div>
         </Link>
 
-        {/* Item List */}
         <Link href={'/items'}>
           <div className='group relative w-[300px] h-[200px] overflow-hidden rounded-lg shadow-md'>
             <Image
