@@ -1,12 +1,13 @@
 import ItemCard from '@/components/items/ItemCard';
+import { Item } from '@/types/Item';
 import { fetchVersions } from '@/utils/commonApi';
 import { fetchItemList } from '@/utils/serverApi';
 
 const Items = async () => {
   const versions = await fetchVersions();
-  const { data } = await fetchItemList();
+  const { data }: { data: Record<string, Item> } = await fetchItemList();
 
-  const items = Object.entries(data).map(([id, value]) => ({
+  const items = Object.entries(data).map(([id, value]: [string, Item]) => ({
     id,
     ...value,
   }));

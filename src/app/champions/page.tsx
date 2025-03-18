@@ -1,10 +1,11 @@
 import ChampionCard from '@/components/champions/ChampionCard';
+import { Champion } from '@/types/Champion';
 import { fetchVersions } from '@/utils/commonApi';
 import { fetchChampionList } from '@/utils/serverApi';
 
 const Champions = async () => {
   const versions = await fetchVersions();
-  const { data } = await fetchChampionList();
+  const { data }: {data: Record<string, Champion>} = await fetchChampionList();
 
   const champions = Object.values(data);
 
@@ -14,7 +15,7 @@ const Champions = async () => {
         <h1 className='text-2xl font-bold mb-4'>Champion List</h1>
         <div className='flex flex-wrap justify-center gap-4'>
           {champions.map((champion) => (
-            <ChampionCard key={champion.id} champion={champion} versions={versions}  />
+            <ChampionCard key={champion.id} champion={champion} versions={versions} />
           ))}
         </div>
       </div>

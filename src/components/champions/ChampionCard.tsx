@@ -1,8 +1,14 @@
+import { Champion } from '@/types/Champion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const ChampionCard = ({ champion, versions }) => {
-  const BASE_URL = process.env.BASE_URL;
+interface ChampionCardProps {
+  champion: Champion;
+  versions: string[];
+}
+
+const ChampionCard = ({ champion, versions }: ChampionCardProps) => {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   return (
     <Link href={`/champions/${champion.id}`}>
       <li className='border rounded-lg shadow-md p-4 flex flex-col items-center text-center w-56 h-72 bg-gray-900 transition-all transform hover:scale-105 hover:text-red-600 cursor-pointer'>
