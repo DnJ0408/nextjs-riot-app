@@ -1,19 +1,19 @@
-import { fetchChampionRotation } from '@/utils/clientApi';
+import { ChampionDetail } from '@/types/Champion';
+import { fetchChampionIdsForRotation } from '@/utils/commonApi';
+
 import { fetchChampionList } from '@/utils/serverApi';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const { data: rotationData, response } = await fetchChampionRotation();
+  const { data: rotationData, response } = await fetchChampionIdsForRotation();
   const { freeChampionIds } = rotationData;
 
   const { data } = await fetchChampionList();
-  const champions = Object.values(data);
+  const champions = Object.values(data) as ChampionDetail[];
 
   const freeChampions = champions.filter((champion) =>
     freeChampionIds.includes(Number(champion.key))
   );
-
-  console.log(freeChampions);
 
   if (!response.ok) {
     return NextResponse.json(
