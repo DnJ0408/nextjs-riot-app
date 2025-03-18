@@ -3,8 +3,8 @@ import localFont from 'next/font/local';
 import Link from 'next/link';
 import './globals.css';
 
-const pretendard = localFont({
-  src: '../public/fonts/PretendardVariable.woff2',
+const Beaufort = localFont({
+  src: '../styles/fonts/BeaufortforLOL-Bold.woff2',
 });
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function RootLayout({
 
   return (
     <html lang='en'>
-      <body className={`${pretendard.className} antialiased`}>
+      <body className={`${Beaufort.className} antialiased`}>
         <div className='flex flex-wrap text-sm md:text-md lg:text-lg justify-evenly items-center bg-black text-white h-14'>
           <Link className={NAV_LINK} href={'/'}>
             Home
